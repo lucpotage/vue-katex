@@ -1,0 +1,23 @@
+{
+  "name": "vue-katex",
+  "version": "0.1.0",
+  "description": "Vue plugin for KaTeX",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucpotage/vue-katex.git"
+  },
+  "keywords": [
+    "Vue",
+    "KaTeX"
+  ],
+  "author": "Luc Potage",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucpotage/vue-katex/issues"
+  },
+  "homepage": "https://github.com/lucpotage/vue-katex#readme",
+  "dependencies": {
+    "katex": "^0.9.0-alpha2"
+  }
+}
