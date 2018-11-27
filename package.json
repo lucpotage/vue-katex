@@ -1,6 +1,6 @@
 {
   "name": "vue-katex",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Vue plugin for KaTeX",
   "main": "index.js",
   "repository": {
@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/lucpotage/vue-katex#readme",
   "dependencies": {
-    "katex": "^0.9.0-alpha2"
+    "katex": "0.10.0"
   }
 }
