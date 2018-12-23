@@ -8,8 +8,10 @@
     "url": "git+https://github.com/lucpotage/vue-katex.git"
   },
   "scripts": {
-    "dev": "webpack --watch",
-    "build": "webpack"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "deploy": "vue-cli-service build && gh-pages -d dist"
   },
   "keywords": [
     "Vue",
@@ -22,6 +24,21 @@
   },
   "homepage": "https://github.com/lucpotage/vue-katex#readme",
   "dependencies": {
-    "katex": "0.10.0"
-  }
+    "katex": "0.10.0",
+    "vue": "^2.5.21"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.1",
+    "@vue/cli-plugin-eslint": "^3.0.1",
+    "@vue/cli-service": "^3.0.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0-0",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }
