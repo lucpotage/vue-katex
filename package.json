@@ -9,9 +9,8 @@
   },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "deploy": "vue-cli-service build && gh-pages -d dist"
+    "build": "vue-cli-service build --target lib --name vue-katex ./src/lib/index.js",
+    "lint": "vue-cli-service lint"
   },
   "keywords": [
     "Vue",
