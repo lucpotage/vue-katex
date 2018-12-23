@@ -1,27 +1,8 @@
-import katex from 'katex';
+import katexDirective from './katex-directive';
 
 const plugin = {
   install(Vue) {
-    Vue.directive('katex', function(el, binding) {
-      const displayStyle = binding.arg === 'display' ? true : false;
-
-      if (binding.value.expression) {
-        if (binding.value.options) {
-          katex.render(binding.value.expression, el, Object.assign(
-              {displayMode: displayStyle},
-              binding.value.options
-          ));
-        } else {
-          katex.render(binding.value.expression, el, {
-            displayMode: displayStyle,
-          });
-        }
-      } else {
-        katex.render(binding.value, el, {
-          displayMode: displayStyle,
-        });
-      }
-    });
+    Vue.directive(katexDirective.name, katexDirective.directive);
   },
 };
 
