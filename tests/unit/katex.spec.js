@@ -62,4 +62,12 @@ describe('Directive v-katex', () => {
     });
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should match the snapshot in display mode with options', () => {
+    const wrapper = mount(testComponentDisplay, {
+      localVue,
+      propsData: {katex: {expression: '\\frac{a_i}{1+x}', options: {throwOnError: false}}},
+    });
+    expect(wrapper).toMatchSnapshot();
+  });
 });
