@@ -38,7 +38,7 @@ describe('Directive v-katex', () => {
   it('renders katex in display mode with options', () => {
     const wrapper = mount(testComponentDisplay, {
       localVue,
-      propsData: {katex: '{ expression: \'\\frac{a_i}{1+x}\', options: { throwOnError: false }}'},
+      propsData: {katex: {expression: '\\frac{a_i}{1+x}', options: {throwOnError: false}}},
     });
     const children = wrapper.findAll('span');
     const firstChild = children.at(0);
