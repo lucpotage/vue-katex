@@ -46,4 +46,20 @@ describe('Directive v-katex', () => {
     expect(firstChild.classes()).toContain('katex-display');
     expect(secondChild.classes()).toContain('katex');
   });
+
+  it('should match the snapshot', () => {
+    const wrapper = mount(testComponent, {
+      localVue,
+      propsData: {katex: '\\frac{a_i}{1+x}'},
+    });
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should match the snapshot in display mode', () => {
+    const wrapper = mount(testComponentDisplay, {
+      localVue,
+      propsData: {katex: '\\frac{a_i}{1+x}'},
+    });
+    expect(wrapper).toMatchSnapshot();
+  });
 });
