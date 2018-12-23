@@ -1,6 +1,6 @@
 import katex from 'katex';
 
-export default {
+const plugin = {
   install(Vue) {
     Vue.directive('katex', function(el, binding) {
       const displayStyle = binding.arg === 'display' ? true : false;
@@ -26,5 +26,7 @@ export default {
 };
 
 if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue);
+  window.Vue.use(plugin);
 }
+
+export default plugin;
