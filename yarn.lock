@@ -2425,6 +2425,10 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
+eslint-config-google@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-google/-/eslint-config-google-0.11.0.tgz#fd0fc70be2e9114df097cac93a9b5b0d4e1c6830"
+
 eslint-loader@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/eslint-loader/-/eslint-loader-2.1.1.tgz#2a9251523652430bfdd643efdb0afc1a2a89546a"
