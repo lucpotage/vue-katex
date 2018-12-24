@@ -1,4 +1,4 @@
-import katexDirective from './katex-directive';
+import katexDirective from './directives/katex-directive';
 
 const plugin = {
   install(Vue) {

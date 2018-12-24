@@ -1,5 +1,5 @@
 import {createLocalVue, mount} from '@vue/test-utils';
-import VueKatex from '@/lib';
+import VueKatex from '@/plugin';
 
 const localVue = createLocalVue();
 localVue.use(VueKatex);
