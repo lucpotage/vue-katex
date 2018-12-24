@@ -8,7 +8,7 @@
     "url": "git+https://github.com/lucpotage/vue-katex.git"
   },
   "scripts": {
-    "build": "vue-cli-service build --target lib --name vue-katex ./src/lib/index.js",
+    "build": "vue-cli-service build --target lib --name vue-katex ./src/plugin.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
