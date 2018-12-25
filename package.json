@@ -21,6 +21,13 @@
     "KaTeX"
   ],
   "author": "Luc Potage",
+  "contributors": [
+    {
+      "name": "Jake Hassel",
+      "email": "me@shadskii.io",
+      "url": "https://shadskii.io"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lucpotage/vue-katex/issues"
