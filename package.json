@@ -2,8 +2,8 @@
   "name": "vue-katex",
   "version": "0.1.4",
   "description": "Vue plugin for KaTeX",
-  "main": "dist/vue-katex.cjs.js",
-  "module": "dist/vue-katex.es.js",
+  "main": "dist/vue-katex.cjs.min.js",
+  "module": "dist/vue-katex.es.min.js",
   "files": [
     "dist"
   ],

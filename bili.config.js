@@ -1,10 +1,12 @@
 module.exports = {
   input: 'src/plugin.js',
-  plugins: ['vue'],
+  plugins: [
+    'vue',
+  ],
   format: [
-    'cjs',
-    'umd',
-    'es',
+    'cjs-min',
+    'umd-min',
+    'es-min',
   ],
   external: [
     'katex',
