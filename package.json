@@ -1,27 +1,56 @@
 {
   "name": "vue-katex",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Vue plugin for KaTeX",
-  "main": "index.js",
+  "main": "dist/vue-katex.cjs.min.js",
+  "module": "dist/vue-katex.es.min.js",
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lucpotage/vue-katex.git"
   },
   "scripts": {
-    "dev": "webpack --watch",
-    "build": "webpack"
+    "build": "bili --config bili.config.js",
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit"
   },
   "keywords": [
     "Vue",
     "KaTeX"
   ],
   "author": "Luc Potage",
+  "contributors": [
+    {
+      "name": "Jake Hassel",
+      "email": "me@shadskii.io",
+      "url": "https://shadskii.io"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lucpotage/vue-katex/issues"
   },
   "homepage": "https://github.com/lucpotage/vue-katex#readme",
   "dependencies": {
-    "katex": "0.10.0"
+    "katex": "0.10.0",
+    "vue": "^2.5.21"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.1",
+    "@vue/cli-plugin-eslint": "^3.0.1",
+    "@vue/cli-plugin-unit-jest": "^3.0.1",
+    "@vue/cli-service": "^3.0.1",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "bili": "^3.4.2",
+    "eslint": "^5.8.0",
+    "eslint-config-google": "^0.11.0",
+    "eslint-plugin-vue": "^5.0.0-0",
+    "rollup-plugin-vue": "^4.3.2",
+    "vue-template-compiler": "^2.5.17"
   }
 }
