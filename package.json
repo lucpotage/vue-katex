@@ -4,6 +4,7 @@
   "description": "Vue plugin for KaTeX",
   "main": "dist/vue-katex.cjs.min.js",
   "module": "dist/vue-katex.es.min.js",
+  "unpkg": "dist/vue-katex.min.js",
   "files": [
     "dist"
   ],
@@ -14,7 +15,8 @@
   "scripts": {
     "build": "bili --config bili.config.js",
     "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "prepublish": "yarn run lint && yarn run test:unit && yarn run build"
   },
   "keywords": [
     "Vue",
