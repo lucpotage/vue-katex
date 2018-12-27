@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "node"
+install:
+  - yarn
+  - yarn global add codecov
+cache: yarn
+stages:
+  - lint
+  - test
+jobs:
+  include:
+    - stage: lint
+      script:
+        - yarn lint
+    - stage: test
+      script:
+        - yarn test:unit && codecov
