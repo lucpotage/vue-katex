@@ -1,4 +1,6 @@
 language: node_js
+node_js:
+  - "node"
 install:
   - yarn
 cache: yarn
@@ -9,9 +11,7 @@ jobs:
   include:
     - stage: lint
       script:
-        # Run linter
         - yarn lint
     - stage: test
       script:
-        # Run tests
         - yarn test:unit
