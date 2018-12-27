@@ -3,6 +3,7 @@ node_js:
   - "node"
 install:
   - yarn
+  - yarn add -g codecov
 cache: yarn
 stages:
   - lint
@@ -14,4 +15,4 @@ jobs:
         - yarn lint
     - stage: test
       script:
-        - yarn test:unit
+        - yarn test:unit && codecov
