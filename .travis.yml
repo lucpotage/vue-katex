@@ -3,7 +3,7 @@ node_js:
   - "node"
 install:
   - yarn
-  - yarn add -g codecov
+  - yarn global add codecov
 cache: yarn
 stages:
   - lint
