@@ -2,8 +2,8 @@ import {shallowMount, mount} from '@vue/test-utils';
 import KatexElement from '@/components/KatexElement.vue';
 import katex from 'katex';
 
-describe('KatexElement.vue', () =>{
-  it('matches snapshot - inline mode', () =>{
+describe('KatexElement.vue', () => {
+  it('matches snapshot - inline mode', () => {
     const wrapper = shallowMount(KatexElement, {
       propsData: {
         expression: '\\frac{a_i}{1+x}',
@@ -11,7 +11,7 @@ describe('KatexElement.vue', () =>{
     });
     expect(wrapper).toMatchSnapshot();
   });
-  it('matches snapshot - display mode', () =>{
+  it('matches snapshot - display mode', () => {
     const wrapper = shallowMount(KatexElement, {
       propsData: {
         expression: '\\frac{a_i}{1+x}',
@@ -99,7 +99,7 @@ describe('KatexElement.vue', () =>{
   });
 
   it('matches katex renderToString', () => {
-    const expression ='\\frac{a_i}{1+x}';
+    const expression = '\\frac{a_i}{1+x}';
     const wrapper = mount(KatexElement, {
       propsData: {
         expression,
