@@ -1,8 +1,8 @@
 import {createLocalVue, mount} from '@vue/test-utils';
-import VueKatex from '@/plugin';
+import katexDirective from '@/directives/katex-directive';
 
 const localVue = createLocalVue();
-localVue.use(VueKatex);
+localVue.directive(katexDirective.name, katexDirective.directive);
 
 const testComponent = {
   template: '<div v-katex="katex"></div>',
