@@ -19,7 +19,7 @@ export default {
     },
     errorColor: {
       type: String,
-      default: '',
+      default: '#cc0000',
     },
     macros: {
       type: Object,
@@ -47,7 +47,7 @@ export default {
     },
   },
   computed: {
-    innerOptions() {
+    options() {
       return Object.assign({},
           {
             displayMode: this.displayMode,
@@ -62,7 +62,7 @@ export default {
           });
     },
     math() {
-      return katex.renderToString(this.expression, this.innerOptions);
+      return katex.renderToString(this.expression, this.options);
     },
   },
   render(h) {
