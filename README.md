@@ -54,11 +54,12 @@ There are two ways to use vue-katex, using the `KatexElement` component or using
 ```html
 <katex-element expression="'\\frac{a_i}{1+x}'"/>
 ```
-Through props KatexElement supports all of the same options that KaTeX supports.
+Through props `KatexElement` supports all of the same options that KaTeX supports.
 
 
 | Props |
 | :----- |
+|<div><h3>`expression`</h3> <p>**Type:** `String` **Required**</p> A TeX expression to be displayed.</div>|
 |<div><h3>`display-mode`</h3> <p>**Type:** `Boolean` **Default:** `false`</p> If true the math will be rendered in display mode, which will put the math in display style (so `\int` and `\sum` are large, for example), and will center the math on the page on its own line. If false the math will be rendered in inline mode.</div>|
 |<div><h3>`throw-on-error`</h3><p>**Type:** `Boolean` **Default:** `false`</p> If true, KaTeX will throw a `ParseError` when it encounters an unsupported command or invalid LaTeX. If false, KaTeX will render unsupported commands as text, and render invalid LaTeX as its source code with hover text giving the error, in the color given by `errorColor`.</div>|
 |<div> <h3>`error-color="#CC0000"`</h3> <p>**Type:** `String` **Default:** `#CC0000` </p> A color string given in the format "#XXX" or "#XXXXXX". This option determines the color that unsupported commands and invalid LaTeX are rendered in when throwOnError is set to false.</div>|
