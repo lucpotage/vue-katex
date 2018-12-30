@@ -1,6 +1,6 @@
 # vue-katex
 
-KaTeX enables fast math typesetting for the web. This lightweight plugin introduces a simple way to use [KaTeX](https://github.com/KaTeX/KaTeX) in your Vue app. Enjoy! 🙂
+KaTeX enables fast math typesetting for the web. **vue-katex** is a lightweight plugin introduces a simple way to use [KaTeX](https://github.com/KaTeX/KaTeX) in your Vue app. Enjoy! 🙂
 
 [![NPM version](https://img.shields.io/npm/v/vue-katex.svg?style=flat)](https://www.npmjs.com/package/vue-katex) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/lucpotage/vue-katex.svg?branch=master)](https://travis-ci.org/lucpotage/vue-katex)
