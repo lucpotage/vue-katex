@@ -1,8 +1,8 @@
 import {createLocalVue, mount} from '@vue/test-utils';
-import VueKatex from '@/plugin';
+import katexDirective from '@/directives/katex-directive';
 
 const localVue = createLocalVue();
-localVue.use(VueKatex);
+localVue.directive(katexDirective.name, katexDirective.directive);
 
 const testComponent = {
   template: '<div v-katex="katex"></div>',
@@ -12,7 +12,6 @@ const testComponentDisplay = {
   template: '<div v-katex:display="katex"></div>',
   props: ['katex'],
 };
-
 
 describe('Directive v-katex', () => {
   it('renders katex', () => {
@@ -38,7 +37,12 @@ describe('Directive v-katex', () => {
   it('renders katex in display mode with options', () => {
     const wrapper = mount(testComponentDisplay, {
       localVue,
-      propsData: {katex: {expression: '\\frac{a_i}{1+x}', options: {throwOnError: false}}},
+      propsData: {
+        katex: {
+          expression: '\\frac{a_i}{1+x}',
+          options: {throwOnError: false},
+        },
+      },
     });
     const children = wrapper.findAll('span');
     const firstChild = children.at(0);
@@ -66,7 +70,12 @@ describe('Directive v-katex', () => {
   it('should match the snapshot in display mode with options', () => {
     const wrapper = mount(testComponentDisplay, {
       localVue,
-      propsData: {katex: {expression: '\\frac{a_i}{1+x}', options: {throwOnError: false}}},
+      propsData: {
+        katex: {
+          expression: '\\frac{a_i}{1+x}',
+          options: {throwOnError: false},
+        },
+      },
     });
     expect(wrapper).toMatchSnapshot();
   });
