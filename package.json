@@ -6,7 +6,9 @@
   "module": "dist/vue-katex.es.min.js",
   "unpkg": "dist/vue-katex.min.js",
   "files": [
-    "dist"
+    "dist",
+    "vetur/attributes.json",
+    "vetur/tags.json"
   ],
   "repository": {
     "type": "git",
