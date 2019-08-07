@@ -1,0 +1,17 @@
+{
+  "katex-element":{
+    "attributes": [
+      "expression",
+      "display-mode",
+      "throw-on-error",
+      "error-color",
+      "macros",
+      "color-is-text-color",
+      "max-size",
+      "max-expand",
+      "allowed-protocols",
+      "strict"
+    ],
+    "description": ""
+  }
+}
