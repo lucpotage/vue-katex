@@ -1,6 +1,6 @@
 {
   "name": "vue-katex",
-  "version": "0.2.2",
+  "version": "0.2.1",
   "description": "Vue plugin for KaTeX",
   "main": "dist/vue-katex.cjs.min.js",
   "module": "dist/vue-katex.es.min.js",
@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/lucpotage/vue-katex#readme",
   "dependencies": {
-    "katex": "0.10.1",
+    "katex": "0.10.2",
     "vue": "^2.6.10"
   },
   "devDependencies": {
