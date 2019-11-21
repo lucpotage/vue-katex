@@ -1,10 +1,10 @@
 {
   "name": "vue-katex",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Vue plugin for KaTeX",
-  "main": "dist/vue-katex.cjs.min.js",
-  "module": "dist/vue-katex.es.min.js",
-  "unpkg": "dist/vue-katex.min.js",
+  "main": "dist/vue-katex.cjs.js",
+  "module": "dist/vue-katex.es.js",
+  "unpkg": "dist/vue-katex.umd.js",
   "files": [
     "dist",
     "vetur/attributes.json",
@@ -15,7 +15,7 @@
     "url": "git+https://github.com/lucpotage/vue-katex.git"
   },
   "scripts": {
-    "build": "bili --config bili.config.js",
+    "build": "rollup --config rollup.config.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "prepublish": "yarn run lint && yarn run test:unit && yarn run build"
@@ -37,8 +37,8 @@
     "url": "https://github.com/lucpotage/vue-katex/issues"
   },
   "homepage": "https://github.com/lucpotage/vue-katex#readme",
-  "dependencies": {
-    "katex": "0.10.2",
+  "peerDependencies": {
+    "katex": "^0.10.2",
     "vue": "^2.6.10"
   },
   "devDependencies": {
@@ -51,11 +51,16 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
-    "bili": "^3.4.2",
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.12.0",
     "eslint-plugin-vue": "^5.2.2",
+    "katex": "^0.10.2",
+    "rollup": "^1.27.2",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-terser": "^5.1.2",
     "rollup-plugin-vue": "^5.0.0",
+    "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   }
 }

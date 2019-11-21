@@ -7,18 +7,15 @@ KaTeX enables fast math typesetting for the web. **vue-katex** is a lightweight 
 [![codecov](https://codecov.io/gh/lucpotage/vue-katex/branch/master/graph/badge.svg)](https://codecov.io/gh/lucpotage/vue-katex)
 
 
-# Requirements
-
-- Vue 2
-
 # Installation
+Install `vue-katex` with `katex` as a peer dependency
 
 ```
 # With NPM
-npm i vue-katex -P
+npm i vue-katex katex -P
 
 # With Yarn
-yarn add vue-katex
+yarn add vue-katex katex
 ```
 
 As explained in the [KaTeX documentation](https://katex.org/docs/autorender.html), you must also add the related stylesheet.
@@ -92,14 +89,6 @@ To add KaTeX options, use an object literal instead:
 <div v-katex="{ expression: '\\frac{a_i}{1+x}', options: { throwOnError: false }}"></div>
 ```
 
-
-
-# Distribution size
-| File                 | Size          | Size (gzip)  |
-| :-------------       | :-----------  | :-----       |
-| vue-katex.cjs.min.js | 2.1 KB        | 902 B        |
-| vue-katex.es.min.js  | 1.98 KB       | 861 B        |
-| vue-katex.min.js     | 9.01 KB       | 3.99 KB      |
 
 # License
 
