@@ -51,6 +51,46 @@ describe('Directive v-katex', () => {
     expect(secondChild.classes()).toContain('katex');
   });
 
+  it('renders with auto mode', ()=>{
+    const component = {
+      template: `
+        <div v-katex:auto>
+         \\(\\frac{a_i}{1+x}\\)
+        </div>
+      `,
+    };
+    const wrapper = mount(component, {
+      localVue,
+    });
+    expect(wrapper.findAll('span').at(1).classes()).toContain('katex');
+  });
+
+  it('renders with auto mode with options', ()=>{
+    const component = {
+      template: `
+        <div v-katex:auto="{options}">
+         \\(\\frac{a_i}{1+x}\\)
+        </div>
+      `,
+      data() {
+        return {
+          options: {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '\\(', right: '\\)', display: true},
+              {left: '\\[', right: '\\]', display: true},
+            ],
+          },
+        };
+      },
+    };
+    const wrapper = mount(component, {
+      localVue,
+    });
+    expect(wrapper.findAll('span').at(1).classes()).toContain('katex-display');
+  });
+
+
   it('should match the snapshot', () => {
     const wrapper = mount(testComponent, {
       localVue,
