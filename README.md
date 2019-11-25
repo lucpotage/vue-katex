@@ -46,6 +46,43 @@ Now you are all setup to use the plugin.
 
 There are two ways to use vue-katex, using the `KatexElement` component or using the `v-katex` directive.  
 
+### Using the katex directive
+
+In your template (don't forget to escape all backslashes):
+
+```html
+<div v-katex="'\\frac{a_i}{1+x}'"></div>
+```
+
+To render the math in display mode:
+
+```html
+<div v-katex:display="'\\frac{a_i}{1+x}'"></div>
+```
+
+To add KaTeX options, use an object literal instead:
+
+```html
+<div v-katex="{ expression: '\\frac{a_i}{1+x}', options: { throwOnError: false }}"></div>
+```
+
+### Using the katex directive with auto-render
+
+```html
+<div v-katex:auto>
+  \(\frac{a_i}{1+x}\)
+</div>
+```
+
+Options can be applied as follows
+```html
+<div v-katex:auto="{ options }">
+  \(\frac{a_i}{1+x}\)
+</div>
+```
+
+See KaTeX documentation for [auto-render](https://katex.org/docs/autorender.html) for more information.
+
 ### Using the KatexElement component
 
 ```html
@@ -68,27 +105,6 @@ Through props `KatexElement` supports all of the same options that KaTeX support
 |<div><h3>`strict`</h3><p>**Type:** `[Boolean, String, Function]` **Default:**  `"warn"`</p> If `false` or `"ignore"`, allow features that make writing LaTeX convenient but are not actually supported by (Xe)LaTeX (similar to MathJax). If `true` or `"error"` (LaTeX faithfulness mode), throw an error for any such transgressions. If `"warn"` (the default), warn about such behavior via `console.warn`. Provide a custom function `handler(errorCode, errorMsg, token)` to customize behavior depending on the type of transgression (summarized by the string code `errorCode` and detailed in `errorMsg`); this function can also return `"ignore"`, `"error"`, or `"warn"` to use a built-in behavior. A list of such features and their `errorCode`: <ul><li>`"unknownSymbol"`: Use of unknown Unicode symbol, which will likely also lead to warnings about missing character metrics, and layouts may be incorrect (especially in terms of vertical heights).</li><li>`"unicodeTextInMathMode"`: Use of Unicode text characters in math mode.</li><li>`"mathVsTextUnits"`: Mismatch of math vs. text commands and units/mode.</li><li>`"commentAtEnd"`: Use of % comment without a terminating newline. LaTeX would thereby comment out the end of math mode (e.g. $), causing an error. A second category of errorCodes never throw errors, but their strictness affects the behavior of KaTeX</li><li>`"newLineInDisplayMode"`: Use of \\ or \newline in display mode (outside an array/tabular environment). In strict mode, no line break results, as in LaTeX.</li></ul></div>
 
 See also: [KaTeX Documentation](https://katex.org/docs/options.html)
-
-### Using the katex directive
-
-In your template (don't forget to escape all backslashes):
-
-```html
-<div v-katex="'\\frac{a_i}{1+x}'"></div>
-```
-
-To render the math in display mode:
-
-```html
-<div v-katex:display="'\\frac{a_i}{1+x}'"></div>
-```
-
-To add KaTeX options, use an object literal instead:
-
-```html
-<div v-katex="{ expression: '\\frac{a_i}{1+x}', options: { throwOnError: false }}"></div>
-```
-
 
 # License
 
