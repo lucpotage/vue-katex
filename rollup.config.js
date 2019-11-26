@@ -8,6 +8,7 @@ export default {
   external: [
     'vue',
     'katex',
+    'katex/dist/contrib/auto-render.js'
   ],
   output: [
     {
@@ -24,6 +25,7 @@ export default {
       format: 'umd',
       globals: {
         katex: 'katex',
+        'katex/dist/contrib/auto-render.js': 'renderMathInElement'
       },
     },
   ],
