@@ -62,5 +62,8 @@
     "rollup-plugin-vue": "^5.0.0",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
+  },
+  "dependencies": {
+    "deepmerge": "^4.2.2"
   }
 }

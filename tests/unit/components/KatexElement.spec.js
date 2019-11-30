@@ -20,8 +20,16 @@ describe('KatexElement.vue', () => {
     });
     expect(wrapper).toMatchSnapshot();
   });
-  it('has default options', () => {
+
+  it('respects global options', () => {
     const wrapper = shallowMount(KatexElement, {
+      mocks: {
+        $katexOptions: {
+          macros: {
+            '\\blah': '\\frac{#}{#}',
+          },
+        },
+      },
       propsData: {
         expression: '\\frac{a_i}{1+x}',
       },
@@ -29,15 +37,42 @@ describe('KatexElement.vue', () => {
 
     const options = wrapper.vm.options;
     expect(options).toMatchObject({
-      displayMode: false,
-      throwOnError: false,
-      errorColor: '#cc0000',
-      macros: null,
-      colorIsTextColor: false,
-      maxSize: Infinity,
-      maxExpand: 1000,
-      allowedProtocols: ['http', 'https', 'mailto', '_relative'],
-      strict: 'warn',
+      macros: {
+        '\\blah': '\\frac{#}{#}',
+      },
+    });
+  });
+
+  it('merges global options', () => {
+    const wrapper = shallowMount(KatexElement, {
+      mocks: {
+        $katexOptions: {
+          displayMode: false,
+          errorColor: '#000',
+          macros: {
+            '\\blah': '\\frac{#}{#}',
+
+          },
+        },
+      },
+      propsData: {
+        expression: '\\frac{a_i}{1+x}',
+        displayMode: true,
+        errorColor: '#fff',
+        macros: {
+          '\\blahblah': '\\frac{#}{#}',
+        },
+      },
+    });
+
+    const options = wrapper.vm.options;
+    expect(options).toMatchObject({
+      macros: {
+        '\\blah': '\\frac{#}{#}',
+        '\\blahblah': '\\frac{#}{#}',
+      },
+      displayMode: true,
+      errorColor: '#fff',
     });
   });
 
