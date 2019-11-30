@@ -1,5 +1,4 @@
 <script>
-/* eslint-disable vue/require-default-prop */
 import katex from 'katex';
 const merge = require('deepmerge');
 
