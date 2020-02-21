@@ -18,7 +18,7 @@ npm i vue-katex katex -P
 yarn add vue-katex katex
 ```
 
-As explained in the [KaTeX documentation](https://katex.org/docs/autorender.html), you must also add the related stylesheet.
+As explained in the [KaTeX documentation](https://katex.org/docs/node.html), you must also add the related stylesheet.
 
 ```html
 <style>
@@ -35,16 +35,23 @@ In your script entry point:
 
 ```js
 import Vue from 'vue';
-import VueKatex from 'vue-katex'
+import VueKatex from 'vue-katex';
 import 'katex/dist/katex.min.css';
 
-Vue.use(VueKatex)
+Vue.use(VueKatex, {
+  globalOptions: {
+    //... Define globally applied KaTeX options here
+  }
+});
 ```
 Now you are all setup to use the plugin.
 
 # Usage
 
 There are two ways to use vue-katex, using the `KatexElement` component or using the `v-katex` directive.  
+
+### Global Options
+Options applied globally through the plugin will be merged with any options applied locally to the `v-katex` directive or `KatexElement`. Locally applied options have a higher precedence and will override globally applied options, the exception to this is any KaTeX option of the type `object` or `array`. These will be merged with the resultant option containing all global and local keys or elements.
 
 ### Using the katex directive
 

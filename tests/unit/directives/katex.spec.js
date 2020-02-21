@@ -1,57 +1,62 @@
 import {createLocalVue, mount} from '@vue/test-utils';
 import katexDirective from '@/directives/katex-directive';
+import katex from 'katex';
+import renderMathInElement from 'katex/dist/contrib/auto-render.js';
+
+jest.mock('katex');
+jest.mock('katex/dist/contrib/auto-render.js');
 
 const localVue = createLocalVue();
-localVue.directive(katexDirective.name, katexDirective.directive);
+const vKatex = katexDirective({});
+localVue.directive(vKatex.name, vKatex.directive);
 
 const testComponent = {
-  template: '<div v-katex="katex"></div>',
-  props: ['katex'],
+  template: '<div v-katex="expression"></div>',
+  props: ['expression'],
 };
 const testComponentDisplay = {
-  template: '<div v-katex:display="katex"></div>',
-  props: ['katex'],
+  template: '<div v-katex:display="expression"></div>',
+  props: ['expression'],
 };
 
 describe('Directive v-katex', () => {
   it('renders katex', () => {
+    const expression = '\\frac{a_i}{1+x}';
     const wrapper = mount(testComponent, {
       localVue,
-      propsData: {katex: '\\frac{a_i}{1+x}'},
+      propsData: {expression},
     });
-    expect(wrapper.find('span').classes()).toContain('katex');
+    expect(katex.render).toBeCalledWith(expression, wrapper.element, {});
   });
 
   it('renders katex in display mode', () => {
+    const expression = '\\frac{a_i}{1+x}';
     const wrapper = mount(testComponentDisplay, {
       localVue,
-      propsData: {katex: '\\frac{a_i}{1+x}'},
+      propsData: {expression},
     });
-    const children = wrapper.findAll('span');
-    const firstChild = children.at(0);
-    const secondChild = children.at(1);
-    expect(firstChild.classes()).toContain('katex-display');
-    expect(secondChild.classes()).toContain('katex');
+    expect(katex.render).toBeCalledWith(expression, wrapper.element, {displayMode: true});
   });
 
   it('renders katex in display mode with options', () => {
+    const expression = '\\frac{a_i}{1+x}';
     const wrapper = mount(testComponentDisplay, {
       localVue,
       propsData: {
-        katex: {
-          expression: '\\frac{a_i}{1+x}',
+        expression: {
+          expression,
           options: {throwOnError: false},
         },
       },
     });
-    const children = wrapper.findAll('span');
-    const firstChild = children.at(0);
-    const secondChild = children.at(1);
-    expect(firstChild.classes()).toContain('katex-display');
-    expect(secondChild.classes()).toContain('katex');
+
+    expect(katex.render).toBeCalledWith(expression, wrapper.element, {
+      displayMode: true,
+      throwOnError: false,
+    });
   });
 
-  it('renders with auto mode', ()=>{
+  it('renders with auto mode', () => {
     const component = {
       template: `
         <div v-katex:auto>
@@ -62,10 +67,36 @@ describe('Directive v-katex', () => {
     const wrapper = mount(component, {
       localVue,
     });
-    expect(wrapper.findAll('span').at(1).classes()).toContain('katex');
+    expect(renderMathInElement).toBeCalledWith(wrapper.element, {});
   });
 
-  it('renders with auto mode with options', ()=>{
+  it('respects global options', () => {
+    const expression = '\\frac{a_i}{1+x}';
+    const miniLocalVue = createLocalVue();
+    const options = {
+      displayMode: true,
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '\\(', right: '\\)', display: false},
+        {left: '\\[', right: '\\]', display: true},
+      ],
+    };
+    const globalVKatex = katexDirective();
+    miniLocalVue.directive(globalVKatex.name, globalVKatex.directive);
+    const wrapper = mount(testComponent, {
+      localVue: miniLocalVue,
+      propsData: {
+        expression: {
+          expression,
+          options,
+        },
+      },
+    });
+
+    expect(katex.render).toBeCalledWith(expression, wrapper.element, options);
+  });
+
+  it('merges global options', () => {
     const component = {
       template: `
         <div v-katex:auto="{options}">
@@ -84,39 +115,26 @@ describe('Directive v-katex', () => {
         };
       },
     };
+    const miniLocalVue = createLocalVue();
+    const globalVKatex = katexDirective({
+      displayMode: true,
+      delimiters: [
+        {left: '||', right: '||', display: false},
+      ],
+    });
+    miniLocalVue.directive(globalVKatex.name, globalVKatex.directive);
     const wrapper = mount(component, {
-      localVue,
+      localVue: miniLocalVue,
     });
-    expect(wrapper.findAll('span').at(1).classes()).toContain('katex-display');
-  });
 
-
-  it('should match the snapshot', () => {
-    const wrapper = mount(testComponent, {
-      localVue,
-      propsData: {katex: '\\frac{a_i}{1+x}'},
+    expect(renderMathInElement).toBeCalledWith(wrapper.element, {
+      displayMode: true,
+      delimiters: [
+        {left: '||', right: '||', display: false},
+        {left: '$$', right: '$$', display: true},
+        {left: '\\(', right: '\\)', display: true},
+        {left: '\\[', right: '\\]', display: true},
+      ],
     });
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('should match the snapshot in display mode', () => {
-    const wrapper = mount(testComponentDisplay, {
-      localVue,
-      propsData: {katex: '\\frac{a_i}{1+x}'},
-    });
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('should match the snapshot in display mode with options', () => {
-    const wrapper = mount(testComponentDisplay, {
-      localVue,
-      propsData: {
-        katex: {
-          expression: '\\frac{a_i}{1+x}',
-          options: {throwOnError: false},
-        },
-      },
-    });
-    expect(wrapper).toMatchSnapshot();
   });
 });
