@@ -71,7 +71,7 @@ export default {
             maxExpand: this.maxExpand,
             allowedProtocols: this.allowedProtocols,
             strict: this.strict,
-          })
+          }),
       );
     },
     math() {

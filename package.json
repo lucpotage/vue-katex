@@ -1,6 +1,6 @@
 {
   "name": "vue-katex",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Vue plugin for KaTeX",
   "main": "dist/vue-katex.cjs.js",
   "module": "dist/vue-katex.es.js",
@@ -38,29 +38,29 @@
   },
   "homepage": "https://github.com/lucpotage/vue-katex#readme",
   "peerDependencies": {
-    "katex": "^0.11.1",
-    "vue": "^2.6.10"
+    "katex": "^0.12",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@vue/cli-plugin-babel": "^4.2.2",
-    "@vue/cli-plugin-eslint": "^4.2.2",
-    "@vue/cli-plugin-unit-jest": "^4.2.2",
-    "@vue/cli-service": "^4.2.2",
-    "@vue/test-utils": "^1.0.0-beta.31",
-    "babel-eslint": "^10.0.3",
-    "babel-jest": "^25.1.0",
-    "eslint": "^5.16.0",
-    "eslint-config-google": "^0.12.0",
-    "eslint-plugin-vue": "^5.2.2",
+    "@babel/core": "^7.10.5",
+    "@vue/cli-plugin-babel": "^4.4.6",
+    "@vue/cli-plugin-eslint": "^4.4.6",
+    "@vue/cli-plugin-unit-jest": "^4.4.6",
+    "@vue/cli-service": "^4.4.6",
+    "@vue/test-utils": "^1.0.3",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-vue": "^6.2.2",
     "katex": "^0.11.1",
     "rollup": "^1.27.2",
     "rollup-plugin-buble": "^0.19.8",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-terser": "^5.1.2",
     "rollup-plugin-vue": "^5.0.0",
-    "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10"
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
     "deepmerge": "^4.2.2"
