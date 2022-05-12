@@ -5,7 +5,7 @@ import { terser } from 'rollup-plugin-terser'
 
 export default {
   input: 'src/plugin.js',
-  external: ['vue', 'katex', 'katex/dist/contrib/auto-render.js'],
+  external: ['vue', 'katex', 'katex/dist/contrib/auto-render.js', 'deepmerge'],
   output: [
     {
       file: 'dist/vue3-katex.cjs.js',
@@ -22,6 +22,7 @@ export default {
       globals: {
         katex: 'katex',
         'katex/dist/contrib/auto-render.js': 'renderMathInElement',
+        merge: 'deepmerge',
       },
     },
   ],

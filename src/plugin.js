@@ -3,7 +3,7 @@
  */
 import katexDirective from './directives/katex-directive'
 import KatexElement from './components/KatexElement.vue'
-import VueDOMPurifyHTML from 'vue-dompurify-html'
+// import VueDOMPurifyHTML from 'vue-dompurify-html'
 
 /**
  * Install function for installing plugin into Vue 3 application.
@@ -14,7 +14,7 @@ import VueDOMPurifyHTML from 'vue-dompurify-html'
 function install(app, options) {
   const globalOptions = (options && options.globalOptions) || {}
   const vKatex = katexDirective(globalOptions)
-  app.use(VueDOMPurifyHTML)
+  // app.use(VueDOMPurifyHTML)
   app.directive(vKatex.name, vKatex.directive)
   app.component(KatexElement.name, KatexElement)
   app.provide('$katexOptions', globalOptions)
