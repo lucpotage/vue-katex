@@ -1,32 +1,36 @@
-// import {defineComponent} from 'vue';
-// import {mount} from '@vue/test-utils';
-// import VueKatex from '@/plugin.js';
+import { createApp, inject } from 'vue'
+import { mount } from '@vue/test-utils'
+import VueKatex from '@/plugin.js'
 
-// const App = defineComponent({
-// name: 'TestApp',
-// });
+describe('plugin.js', () => {
+  it('registers components and directives', () => {
+    const app = createApp({
+      template: '<div></div>',
+    })
+    app.use(VueKatex)
+    expect(app.directive('katex')).toBeTruthy()
+    expect(app.component('KatexElement').name).toBe('KatexElement')
+  })
 
-// describe('plugin.js', () => {
-//   it('registers components and directives', () => {
-//     const wrapper = mount(App, {
-//       global: {
-//         plugins: [VueKatex],
-//       },
-//     });
-//     const {components, directives} = wrapper.options;
-//     expect(components.KatexElement).toBeTruthy();
-//     expect(directives.katex).toBeTruthy();
-//     expect(wrapper).toBeTruthy();
-//   });
+  it('installs $katexOptions', () => {
+    const wrapper = mount(
+      {
+        name: 'TestComponent',
+        setup: () => {
+          const options = inject('$katexOptions')
+          return {
+            options,
+          }
+        },
+        template: '<div>Empty - {{ options.someThing }}</div>',
+      },
+      {
+        global: {
+          plugins: [[VueKatex, { globalOptions: { someThing: 'weird', message: 'working' } }]],
+        },
+      }
+    )
 
-//   it('installs $katexOptions', () => {
-//     const wrapper = mount(App, {
-//       global: {
-//         plugins: [VueKatex],
-//       },
-//     });
-//     expect(wrapper.prototype.$katexOptions).toBeTruthy();
-//     expect(wrapper.prototype.$katexOptions.someOption).toBeTruthy();
-//     expect(wrapper).toBeTruthy();
-//   });
-// });
+    expect(wrapper.html()).toBe('<div>Empty - weird</div>')
+  })
+})
