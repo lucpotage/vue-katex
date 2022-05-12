@@ -34,15 +34,18 @@ import 'katex/dist/katex.min.css';
 In your script entry point:
 
 ```js
-import Vue from 'vue';
-import VueKatex from '@hsorby/vue3-katex';
+import { createApp } from 'vue'
+import App from './App.vue'
+
+import Vue3Katex from '@hsorby/vue3-katex';
 import 'katex/dist/katex.min.css';
 
-app.use(VueKatex, {
-  globalOptions: {
+createApp(App)
+  .use(Vue3Katex, {
+    globalOptions: {
     //... Define globally applied KaTeX options here
-  }
-});
+    }
+  });
 ```
 Now you are all setup to use the plugin.
 
