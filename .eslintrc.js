@@ -16,6 +16,6 @@ module.exports = {
     'max-len': 0,
   },
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
   },
 };

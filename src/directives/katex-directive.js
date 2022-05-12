@@ -1,6 +1,6 @@
 import katex from 'katex';
 import renderMathInElement from 'katex/dist/contrib/auto-render.js';
-const merge = require('deepmerge');
+import merge from 'deepmerge';
 
 const katexDirective = (globalOptions) => ({
   name: 'katex',
@@ -22,4 +22,5 @@ const katexDirective = (globalOptions) => ({
     }
   },
 });
+
 export default katexDirective;

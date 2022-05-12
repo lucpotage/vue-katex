@@ -1,90 +1,109 @@
-<script>
-import katex from 'katex';
-const merge = require('deepmerge');
+<template>
+  <component
+    :is="tag"
+    v-dompurify-html="math"
+  />
+</template>
 
-const removeUndefined = (obj) =>{
+<script>
+export default {
+  name: 'KatexElement',
+};
+</script>
+
+<script setup>
+import {computed, defineProps, inject, toRefs} from 'vue';
+import katex from 'katex';
+import merge from 'deepmerge';
+
+const removeUndefined = (obj) => {
   const newObj = {};
-  Object.keys(obj).forEach((key) => {
+  for (const key of Object.keys(obj)) {
     if (typeof obj[key] !== 'undefined') {
       newObj[key] = obj[key];
     }
-  });
+  }
   return newObj;
 };
 
-export default {
-  name: 'KatexElement',
-  props: {
-    expression: {
-      type: String,
-      default: '',
-      required: true,
-    },
-    displayMode: {
-      type: Boolean,
-      default: undefined,
-    },
-    throwOnError: {
-      type: Boolean,
-      default: undefined,
-    },
-    errorColor: {
-      type: String,
-      default: undefined,
-    },
-    macros: {
-      type: Object,
-      default: undefined,
-    },
-    colorIsTextColor: {
-      type: Boolean,
-      default: undefined,
-    },
-    maxSize: {
-      type: Number,
-      default: undefined,
-    },
-    maxExpand: {
-      type: Number,
-      default: undefined,
-    },
-    allowedProtocols: {
-      type: Array,
-      default: undefined,
-    },
-    strict: {
-      type: [Boolean, String, Function],
-      default: undefined,
-    },
+const props = defineProps({
+  expression: {
+    type: String,
+    default: '',
+    required: true,
   },
-  computed: {
-    options() {
-      return merge(
-          this.$katexOptions,
-          removeUndefined({
-            displayMode: this.displayMode,
-            throwOnError: this.throwOnError,
-            errorColor: this.errorColor,
-            macros: this.macros,
-            colorIsTextColor: this.colorIsTextColor,
-            maxSize: this.maxSize,
-            maxExpand: this.maxExpand,
-            allowedProtocols: this.allowedProtocols,
-            strict: this.strict,
-          }),
-      );
-    },
-    math() {
-      return katex.renderToString(this.expression, this.options);
-    },
+  displayMode: {
+    type: Boolean,
+    default: undefined,
   },
-  render(h) {
-    const element = this.displayMode ? 'div' : 'span';
-    return h(element, {
-      domProps: {
-        innerHTML: this.math,
-      },
-    });
+  throwOnError: {
+    type: Boolean,
+    default: undefined,
   },
-};
+  errorColor: {
+    type: String,
+    default: undefined,
+  },
+  macros: {
+    type: Object,
+    default: undefined,
+  },
+  colorIsTextColor: {
+    type: Boolean,
+    default: undefined,
+  },
+  maxSize: {
+    type: Number,
+    default: undefined,
+  },
+  maxExpand: {
+    type: Number,
+    default: undefined,
+  },
+  allowedProtocols: {
+    type: Array,
+    default: undefined,
+  },
+  strict: {
+    type: [Boolean, String, Function],
+    default: undefined,
+  },
+});
+
+const {
+  displayMode,
+  expression,
+  throwOnError,
+  errorColor,
+  macros,
+  colorIsTextColor,
+  maxSize,
+  maxExpand,
+  allowedProtocols,
+  strict,
+} = toRefs(props);
+
+const options = computed(() => {
+  return merge(
+      inject('$katexOptions'),
+      removeUndefined({
+        displayMode: displayMode.value,
+        throwOnError: throwOnError.value,
+        errorColor: errorColor.value,
+        macros: macros.value,
+        colorIsTextColor: colorIsTextColor.value,
+        maxSize: maxSize.value,
+        maxExpand: maxExpand.value,
+        allowedProtocols: allowedProtocols.value,
+        strict: strict.value,
+      }),
+  );
+});
+
+const tag = computed(() => {
+  return displayMode.value ? 'div' : 'span';
+});
+const math = computed(() => {
+  return katex.renderToString(expression.value, options.value);
+});
 </script>

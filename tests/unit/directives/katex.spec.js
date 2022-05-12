@@ -1,14 +1,12 @@
-import {createLocalVue, mount} from '@vue/test-utils';
-import katexDirective from '@/directives/katex-directive';
+import {mount} from '@vue/test-utils';
+// import katexDirective from '@/directives/katex-directive';
 import katex from 'katex';
 import renderMathInElement from 'katex/dist/contrib/auto-render.js';
 
 jest.mock('katex');
 jest.mock('katex/dist/contrib/auto-render.js');
 
-const localVue = createLocalVue();
-const vKatex = katexDirective({});
-localVue.directive(vKatex.name, vKatex.directive);
+// const vKatex = katexDirective({});
 
 const testComponent = {
   template: '<div v-katex="expression"></div>',
@@ -23,8 +21,7 @@ describe('Directive v-katex', () => {
   it('renders katex', () => {
     const expression = '\\frac{a_i}{1+x}';
     const wrapper = mount(testComponent, {
-      localVue,
-      propsData: {expression},
+      props: {expression},
     });
     expect(katex.render).toBeCalledWith(expression, wrapper.element, {});
   });
@@ -32,8 +29,7 @@ describe('Directive v-katex', () => {
   it('renders katex in display mode', () => {
     const expression = '\\frac{a_i}{1+x}';
     const wrapper = mount(testComponentDisplay, {
-      localVue,
-      propsData: {expression},
+      props: {expression},
     });
     expect(katex.render).toBeCalledWith(expression, wrapper.element, {displayMode: true});
   });
@@ -41,8 +37,7 @@ describe('Directive v-katex', () => {
   it('renders katex in display mode with options', () => {
     const expression = '\\frac{a_i}{1+x}';
     const wrapper = mount(testComponentDisplay, {
-      localVue,
-      propsData: {
+      props: {
         expression: {
           expression,
           options: {throwOnError: false},
@@ -65,14 +60,12 @@ describe('Directive v-katex', () => {
       `,
     };
     const wrapper = mount(component, {
-      localVue,
     });
     expect(renderMathInElement).toBeCalledWith(wrapper.element, {});
   });
 
   it('respects global options', () => {
     const expression = '\\frac{a_i}{1+x}';
-    const miniLocalVue = createLocalVue();
     const options = {
       displayMode: true,
       delimiters: [
@@ -81,11 +74,9 @@ describe('Directive v-katex', () => {
         {left: '\\[', right: '\\]', display: true},
       ],
     };
-    const globalVKatex = katexDirective();
-    miniLocalVue.directive(globalVKatex.name, globalVKatex.directive);
+    // const globalVKatex = katexDirective();
     const wrapper = mount(testComponent, {
-      localVue: miniLocalVue,
-      propsData: {
+      props: {
         expression: {
           expression,
           options,
@@ -115,16 +106,13 @@ describe('Directive v-katex', () => {
         };
       },
     };
-    const miniLocalVue = createLocalVue();
-    const globalVKatex = katexDirective({
-      displayMode: true,
-      delimiters: [
-        {left: '||', right: '||', display: false},
-      ],
-    });
-    miniLocalVue.directive(globalVKatex.name, globalVKatex.directive);
+    // const globalVKatex = katexDirective({
+    //   displayMode: true,
+    //   delimiters: [
+    //     {left: '||', right: '||', display: false},
+    //   ],
+    // });
     const wrapper = mount(component, {
-      localVue: miniLocalVue,
     });
 
     expect(renderMathInElement).toBeCalledWith(wrapper.element, {

@@ -12,16 +12,16 @@ export default {
   ],
   output: [
     {
-      file: 'dist/vue-katex.cjs.js',
+      file: 'dist/vue3-katex.cjs.js',
       format: 'cjs',
     },
     {
-      file: 'dist/vue-katex.es.js',
+      file: 'dist/vue3-katex.es.js',
       format: 'esm',
     },
     {
-      name: 'VueKatex',
-      file: 'dist/vue-katex.umd.js',
+      name: 'Vue3Katex',
+      file: 'dist/vue3-katex.umd.js',
       format: 'umd',
       globals: {
         'katex': 'katex',

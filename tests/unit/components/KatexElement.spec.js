@@ -5,7 +5,7 @@ import katex from 'katex';
 describe('KatexElement.vue', () => {
   it('matches snapshot - inline mode', () => {
     const wrapper = shallowMount(KatexElement, {
-      propsData: {
+      props: {
         expression: '\\frac{a_i}{1+x}',
       },
     });
@@ -13,7 +13,7 @@ describe('KatexElement.vue', () => {
   });
   it('matches snapshot - display mode', () => {
     const wrapper = shallowMount(KatexElement, {
-      propsData: {
+      props: {
         expression: '\\frac{a_i}{1+x}',
         displayMode: true,
       },
@@ -30,7 +30,7 @@ describe('KatexElement.vue', () => {
           },
         },
       },
-      propsData: {
+      props: {
         expression: '\\frac{a_i}{1+x}',
       },
     });
@@ -55,7 +55,7 @@ describe('KatexElement.vue', () => {
           },
         },
       },
-      propsData: {
+      props: {
         expression: '\\frac{a_i}{1+x}',
         displayMode: true,
         errorColor: '#fff',
@@ -88,7 +88,7 @@ describe('KatexElement.vue', () => {
     const strict = false;
 
     const wrapper = shallowMount(KatexElement, {
-      propsData: {
+      props: {
         expression: '\\frac{a_i}{1+x}',
         displayMode,
         throwOnError,
@@ -118,14 +118,14 @@ describe('KatexElement.vue', () => {
 
   it('has correct root element - inline mode', () => {
     const wrapper = shallowMount(KatexElement, {
-      propsData: {expression: '\\frac{a_i}{1+x}'},
+      props: {expression: '\\frac{a_i}{1+x}'},
     });
     expect(wrapper.is('span')).toBe(true);
   });
 
   it('has correct root element - display mode', () => {
     const wrapper = shallowMount(KatexElement, {
-      propsData: {
+      props: {
         expression: '\\frac{a_i}{1+x}',
         displayMode: true,
       },
@@ -136,7 +136,7 @@ describe('KatexElement.vue', () => {
   it('matches katex renderToString', () => {
     const expression = '\\frac{a_i}{1+x}';
     const wrapper = mount(KatexElement, {
-      propsData: {
+      props: {
         expression,
       },
     });
