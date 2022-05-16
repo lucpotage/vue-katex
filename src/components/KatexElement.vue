@@ -11,7 +11,7 @@ export default {
 <script setup>
 // Would like to use v-dompurify-html in the component instead of v-html in the template.
 // But I haven't because it changes the test answers.
-import { computed, defineProps, inject, toRefs } from 'vue'
+import { computed, defineProps, inject, toRefs, ref } from 'vue'
 import katex from 'katex'
 import merge from 'deepmerge'
 
@@ -82,9 +82,12 @@ const {
   strict,
 } = toRefs(props)
 
+const globalOptions = ref({})
+globalOptions.value = inject('$katexOptions')
+
 const options = computed(() => {
   return merge(
-    inject('$katexOptions'),
+    globalOptions.value,
     removeUndefined({
       displayMode: displayMode.value,
       throwOnError: throwOnError.value,
