@@ -44,8 +44,8 @@
     "deepmerge": "^4.2.2"
   },
   "peerDependencies": {
-    "katex": "^0.15.3",
-    "vue": "^3.2.13"
+    "katex": "^0.16.0",
+    "vue": "^3.2.22"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
