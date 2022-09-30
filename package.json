@@ -1,6 +1,6 @@
 {
-  "name": "@hsorby/vue3-katex",
-  "version": "0.6.0-rc.3",
+  "name": "@gatnewhou/vue3-katex",
+  "version": "0.6.0-rc.5",
   "description": "Vue 3 plugin for KaTeX",
   "main": "./dist/vue3-katex.cjs.js",
   "module": "./dist/vue3-katex.es.js",
@@ -20,6 +20,10 @@
       "name": "Jake Hassel",
       "email": "me@shadskii.io",
       "url": "https://shadskii.io"
+    },
+    {
+      "name": "Gatlin Newhouse",
+      "email": "gatlin.newhouse@gmail.com"
     }
   ],
   "license": "MIT",
