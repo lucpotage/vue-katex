@@ -7671,10 +7671,10 @@ vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-vue-dompurify-html@^3.0.0-beta.3:
-  version "3.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/vue-dompurify-html/-/vue-dompurify-html-3.0.0-beta.3.tgz#c8cc86ba6d31fccc8e4dd70faab3a665749a7855"
-  integrity sha512-2YPUtBA3ImJNicyePngA+VFoVGCMmA5hXpvCbxwTmGq2N6TlvaFLrUYtxzGa/1V6TU3Um2VKUXd1vYc50k8UTA==
+vue-dompurify-html@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/vue-dompurify-html/-/vue-dompurify-html-2.5.2.tgz#f547d4eacae4640f95eb0e9308e7ef8e223887c6"
+  integrity sha512-G6I135+BhlACJ9xftqK7fvhXyjNrgHCI594qHnUW5e2Bmp8BOTV1kz7cxwI37b4BJnHkj9IY10RwMPOtJqw+pw==
   dependencies:
     dompurify "^2.3.4"
 
