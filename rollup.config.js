@@ -1,7 +1,7 @@
-import vue from 'rollup-plugin-vue'
-import commonjs from '@rollup/plugin-commonjs'
-import buble from '@rollup/plugin-buble'
-import { terser } from 'rollup-plugin-terser'
+import vue from 'rollup-plugin-vue';
+import commonjs from '@rollup/plugin-commonjs';
+import buble from '@rollup/plugin-buble';
+import {terser} from 'rollup-plugin-terser';
 
 export default {
   input: 'src/plugin.js',
@@ -26,10 +26,10 @@ export default {
       file: 'dist/vue3-katex.umd.js',
       format: 'umd',
       globals: {
-        deepmerge: 'deepmerge',
-        katex: 'Katex',
+        'deepmerge': 'deepmerge',
+        'katex': 'Katex',
         'katex/dist/contrib/auto-render.js': 'renderMathInElement',
-        vue: 'Vue',
+        'vue': 'Vue',
         'vue-dompurify-html': 'vue-dompurify-html',
       },
     },
@@ -46,4 +46,4 @@ export default {
     }),
     terser(),
   ],
-}
+};
