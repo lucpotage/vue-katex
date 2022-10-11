@@ -3,19 +3,18 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: [
-    'plugin:vue/recommended',
-    'eslint:recommended',
-    'google',
-  ],
+  extends: ['plugin:vue/vue3-essential', 'eslint:recommended', 'plugin:prettier/recommended'],
+  plugins: ['prettier'],
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'vue/component-name-in-template-casing': 0,
-    'linebreak-style': 0,
-    'max-len': 0,
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
   },
-  parserOptions: {
-    parser: '@babel/eslint-parser',
-  },
-};
+  overrides: [
+    {
+      files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)'],
+      env: {
+        jest: true,
+      },
+    },
+  ],
+}

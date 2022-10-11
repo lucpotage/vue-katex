@@ -4,6 +4,7 @@
   "description": "Vue 3 plugin for KaTeX",
   "main": "./dist/vue3-katex.umd.js",
   "module": "./dist/vue3-katex.es.js",
+  "unpkg": "./dist/vue3-katex.umd.js",
   "exports": {
     ".": {
       "import": "./dist/vue3-katex.es.js",
@@ -25,10 +26,6 @@
     "test:unit": "vue-cli-service test:unit",
     "prepublish": "yarn run lint && yarn run test:unit && yarn run build"
   },
-  "keywords": [
-    "Vue",
-    "KaTeX"
-  ],
   "author": "Luc Potage",
   "contributors": [
     {
@@ -42,8 +39,14 @@
     "url": "https://github.com/hsorby/vue3-katex/issues"
   },
   "homepage": "https://github.com/hsorby/vue3-katex#readme",
+  "keywords": [
+    "Vue",
+    "Vue3",
+    "KaTeX"
+  ],
   "peerDependencies": {
-    "vue": "^3.2.25"
+    "katex": "^0.15.3",
+    "vue": "^3.2.13"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
