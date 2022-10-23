@@ -1,5 +1,5 @@
 {
-  "name": "@hsorby/vue3-katex",
+  "name": "vue-katex",
   "version": "0.6.0-rc.4",
   "description": "Vue 3 plugin for KaTeX",
   "main": "./dist/vue3-katex.umd.js",
@@ -18,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hsorby/vue3-katex.git"
+    "url": "git+https://github.com/lucpotage/vue-katex.git"
   },
   "scripts": {
     "build": "rollup --config rollup.config.js",
@@ -32,13 +32,18 @@
       "name": "Jake Hassel",
       "email": "me@shadskii.io",
       "url": "https://shadskii.io"
+    },
+    {
+      "name": "Hugh Sorby",
+      "email": "h.sorby@auckland.ac.nz",
+      "url": "https://github.com/hsorby"
     }
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hsorby/vue3-katex/issues"
+    "url": "https://github.com/lucpotage/vue-katex/issues"
   },
-  "homepage": "https://github.com/hsorby/vue3-katex#readme",
+  "homepage": "https://github.com/lucpotage/vue-katex#readme",
   "keywords": [
     "Vue",
     "Vue3",
