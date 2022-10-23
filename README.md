@@ -1,6 +1,6 @@
 # @hsorby/vue3-katex
 
-KaTeX enables fast math typesetting for the web. **@hsorby/vue3-katex** is a lightweight plugin introduces a simple way to use [KaTeX](https://github.com/KaTeX/KaTeX) in your Vue app. Enjoy! 🙂
+KaTeX enables fast math typesetting for the web. **vue-katex** is a lightweight plugin introduces a simple way to use [KaTeX](https://github.com/KaTeX/KaTeX) in your Vue app. Enjoy! 🙂
 
 [![NPM version](https://img.shields.io/npm/v/@hsorby/vue3-katex.svg?style=flat)](https://www.npmjs.com/package/@hsorby/vue3-katex) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/lucpotage/@hsorby/vue3-katex.svg?branch=master)](https://travis-ci.org/lucpotage/@hsorby/vue3-katex)
@@ -8,14 +8,14 @@ KaTeX enables fast math typesetting for the web. **@hsorby/vue3-katex** is a lig
 
 
 # Installation
-Install `@hsorby/vue3-katex` with `katex` as a peer dependency
+Install `vue-katex` with `katex` as a peer dependency
 
 ```
 # With NPM
-npm i @hsorby/vue3-katex katex -P
+npm i vue-katex katex -P
 
 # With Yarn
-yarn add @hsorby/vue3-katex katex
+yarn add vue-katex katex
 ```
 
 As explained in the [KaTeX documentation](https://katex.org/docs/node.html), you must also add the related stylesheet.
@@ -37,11 +37,11 @@ In your script entry point:
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import Vue3Katex from '@hsorby/vue3-katex';
+import VueKatex from 'vue-katex';
 import 'katex/dist/katex.min.css';
 
 createApp(App)
-  .use(Vue3Katex, {
+  .use(VueKatex, {
     globalOptions: {
     //... Define globally applied KaTeX options here
     }
@@ -51,7 +51,7 @@ Now you are all setup to use the plugin.
 
 # Usage
 
-There are two ways to use @hsorby/vue3-katex, using the `KatexElement` component or using the `v-katex` directive.
+There are two ways to use vue-katex, using the `KatexElement` component or using the `v-katex` directive.
 
 ### Global Options
 Options applied globally through the plugin will be merged with any options applied locally to the `v-katex` directive or `KatexElement`. Locally applied options have a higher precedence and will override globally applied options, the exception to this is any KaTeX option of the type `object` or `array`. These will be merged with the resultant option containing all global and local keys or elements.
@@ -118,4 +118,4 @@ See also: [KaTeX Documentation](https://katex.org/docs/options.html)
 
 # License
 
-@hsorby/vue3-katex is released under the [MIT license](http://opensource.org/licenses/MIT).
+vue-katex is released under the [MIT license](http://opensource.org/licenses/MIT).
