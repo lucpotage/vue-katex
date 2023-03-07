@@ -1,6 +1,6 @@
 <script>
 import katex from 'katex';
-const merge = require('deepmerge');
+import deepmerge from 'deepmerge';
 
 const removeUndefined = (obj) =>{
   const newObj = {};
@@ -59,7 +59,7 @@ export default {
   },
   computed: {
     options() {
-      return merge(
+      return deepmerge(
           this.$katexOptions,
           removeUndefined({
             displayMode: this.displayMode,

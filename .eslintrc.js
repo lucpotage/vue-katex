@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   env: {
-    node: true,
+    es2022: true,
   },
   extends: [
     'plugin:vue/recommended',
@@ -14,8 +14,5 @@ module.exports = {
     'vue/component-name-in-template-casing': 0,
     'linebreak-style': 0,
     'max-len': 0,
-  },
-  parserOptions: {
-    parser: 'babel-eslint',
   },
 };

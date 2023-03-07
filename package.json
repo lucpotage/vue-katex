@@ -2,6 +2,7 @@
   "name": "vue-katex",
   "version": "0.5.0",
   "description": "Vue plugin for KaTeX",
+  "type": "module",
   "main": "dist/vue-katex.cjs.js",
   "module": "dist/vue-katex.es.js",
   "unpkg": "dist/vue-katex.umd.js",
@@ -15,10 +16,11 @@
     "url": "git+https://github.com/lucpotage/vue-katex.git"
   },
   "scripts": {
-    "build": "rollup --config rollup.config.js",
-    "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit",
-    "prepublish": "yarn run lint && yarn run test:unit && yarn run build"
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "keywords": [
     "Vue",
@@ -38,31 +40,24 @@
   },
   "homepage": "https://github.com/lucpotage/vue-katex#readme",
   "peerDependencies": {
-    "katex": "^0.12",
-    "vue": "^2.6.11"
+    "katex": "^0.16.4",
+    "vue": "^2.7.14"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.5",
-    "@vue/cli-plugin-babel": "^4.4.6",
-    "@vue/cli-plugin-eslint": "^4.4.6",
-    "@vue/cli-plugin-unit-jest": "^4.4.6",
-    "@vue/cli-service": "^4.4.6",
-    "@vue/test-utils": "^1.0.3",
-    "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-google": "^0.14.0",
-    "eslint-plugin-vue": "^6.2.2",
-    "katex": "^0.11.1",
-    "rollup": "^1.27.2",
-    "rollup-plugin-buble": "^0.19.8",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-terser": "^5.1.2",
-    "rollup-plugin-vue": "^5.0.0",
-    "vue": "^2.6.11",
-    "vue-template-compiler": "^2.6.11"
+    "@vitejs/plugin-vue2": "^2.2.0",
+    "@vue/test-utils": "1",
+    "jsdom": "^21.1.0",
+    "katex": "^0.16.4",
+    "terser": "^5.16.5",
+    "vite": "^4.1.4",
+    "vitest": "^0.29.1",
+    "vue": "^2.7.14",
+    "vue-template-compiler": "^2.7.14"
   },
   "dependencies": {
-    "deepmerge": "^4.2.2"
+    "deepmerge": "^4.3.0",
+    "eslint": "8",
+    "eslint-plugin-vue": "8",
+    "path": "^0.12.7"
   }
 }

@@ -1,5 +1,6 @@
+import {describe, it, expect, vi} from 'vitest';
 import {createLocalVue} from '@vue/test-utils';
-import VueKatex from '@/plugin.js';
+import VueKatex from '@/vite-plugin-katex.js';
 
 const vueInNodeEnv = (options) => {
   const localVue = createLocalVue();
@@ -7,7 +8,7 @@ const vueInNodeEnv = (options) => {
   return localVue;
 };
 
-describe('plugin.js', () => {
+describe('vite-plugin-katex.js', () => {
   it('registers components and directives', ()=>{
     const {components, directives} = vueInNodeEnv().options;
     expect(components.KatexElement).toBeTruthy();
@@ -24,9 +25,9 @@ describe('plugin.js', () => {
     expect(localVue.prototype.$katexOptions.someOption).toBeTruthy();
   });
 
-  it('provides v-katex with globals', ()=>{
-    const vKatex = require('@/directives/katex-directive');
-    const vKatexSpy = jest.spyOn(vKatex, 'default');
+  it('provides v-katex with globals', async () => {
+    const vKatex = await import('@/directives/katex-directive.js');
+    const vKatexSpy = vi.spyOn(vKatex, 'default');
 
     const globalOptions = {
       someOption: 'woo!',
