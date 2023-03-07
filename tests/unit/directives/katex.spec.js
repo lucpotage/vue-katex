@@ -1,10 +1,11 @@
+import {describe, it, expect, vi} from 'vitest';
 import {createLocalVue, mount} from '@vue/test-utils';
-import katexDirective from '@/directives/katex-directive';
+import katexDirective from '@/directives/katex-directive.js';
 import katex from 'katex';
 import renderMathInElement from 'katex/dist/contrib/auto-render.js';
 
-jest.mock('katex');
-jest.mock('katex/dist/contrib/auto-render.js');
+vi.mock('katex');
+vi.mock('katex/dist/contrib/auto-render.js');
 
 const localVue = createLocalVue();
 const vKatex = katexDirective({});

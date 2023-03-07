@@ -1,5 +1,5 @@
-import katexDirective from './directives/katex-directive';
-import KatexElement from './components/KatexElement.vue';
+import katexDirective from '@/directives/katex-directive.js';
+import KatexElement from '@/components/KatexElement.vue';
 
 const plugin = {
   install(Vue, options) {

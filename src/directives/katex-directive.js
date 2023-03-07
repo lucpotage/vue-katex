@@ -1,12 +1,12 @@
-import katex from 'katex';
+import katex from 'katex'
 import renderMathInElement from 'katex/dist/contrib/auto-render.js';
-const merge = require('deepmerge');
+import deepmerge from 'deepmerge';
 
 const katexDirective = (globalOptions) => ({
   name: 'katex',
   directive: function(el, binding) {
     const argOptions = (binding.value && binding.value.options) || {};
-    const allOptions = merge(globalOptions, argOptions);
+    const allOptions = deepmerge(globalOptions, argOptions);
 
     if (binding.arg && binding.arg === 'auto') {
       renderMathInElement(el, allOptions);
@@ -16,7 +16,7 @@ const katexDirective = (globalOptions) => ({
       if (binding.arg === 'display') {
         displayMode.displayMode = true;
       }
-      const options = merge(allOptions, displayMode);
+      const options = deepmerge(allOptions, displayMode);
 
       katex.render(expression, el, options);
     }
