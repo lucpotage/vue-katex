@@ -11,7 +11,7 @@ export default {
 <script setup>
 // Would like to use v-dompurify-html in the component instead of v-html in the template.
 // But I haven't because it changes the test answers.
-import { computed, defineProps, inject, toRefs, ref } from 'vue'
+import { computed, inject, toRefs, ref } from 'vue'
 import katex from 'katex'
 import merge from 'deepmerge'
 
