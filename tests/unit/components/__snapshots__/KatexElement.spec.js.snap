@@ -305,10 +305,6 @@ VueWrapper {
         "warnHandler": undefined,
       },
       "directives": Object {
-        "dompurify-html": Object {
-          "mounted": [Function],
-          "updated": [Function],
-        },
         "katex": [Function],
       },
       "emitsCache": WeakMap {},
@@ -399,10 +395,6 @@ VueWrapper {
           "warnHandler": undefined,
         },
         "directives": Object {
-          "dompurify-html": Object {
-            "mounted": [Function],
-            "updated": [Function],
-          },
           "katex": [Function],
         },
         "emitsCache": WeakMap {},
@@ -620,10 +612,6 @@ VueWrapper {
               "warnHandler": undefined,
             },
             "directives": Object {
-              "dompurify-html": Object {
-                "mounted": [Function],
-                "updated": [Function],
-              },
               "katex": [Function],
             },
             "emitsCache": WeakMap {},
@@ -2763,10 +2751,6 @@ VueWrapper {
             "warnHandler": undefined,
           },
           "directives": Object {
-            "dompurify-html": Object {
-              "mounted": [Function],
-              "updated": [Function],
-            },
             "katex": [Function],
           },
           "emitsCache": WeakMap {},
@@ -3755,10 +3739,6 @@ VueWrapper {
         "warnHandler": undefined,
       },
       "directives": Object {
-        "dompurify-html": Object {
-          "mounted": [Function],
-          "updated": [Function],
-        },
         "katex": [Function],
       },
       "emitsCache": WeakMap {},
@@ -3849,10 +3829,6 @@ VueWrapper {
           "warnHandler": undefined,
         },
         "directives": Object {
-          "dompurify-html": Object {
-            "mounted": [Function],
-            "updated": [Function],
-          },
           "katex": [Function],
         },
         "emitsCache": WeakMap {},
@@ -4064,10 +4040,6 @@ VueWrapper {
               "warnHandler": undefined,
             },
             "directives": Object {
-              "dompurify-html": Object {
-                "mounted": [Function],
-                "updated": [Function],
-              },
               "katex": [Function],
             },
             "emitsCache": WeakMap {},
@@ -6169,10 +6141,6 @@ VueWrapper {
             "warnHandler": undefined,
           },
           "directives": Object {
-            "dompurify-html": Object {
-              "mounted": [Function],
-              "updated": [Function],
-            },
             "katex": [Function],
           },
           "emitsCache": WeakMap {},
