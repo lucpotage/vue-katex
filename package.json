@@ -1,6 +1,6 @@
 {
-  "name": "vue-katex",
-  "version": "0.6.0-rc.4",
+  "name": "@hsorby/vue3-katex",
+  "version": "0.6.0-rc.5",
   "description": "Vue 3 plugin for KaTeX",
   "main": "./dist/vue3-katex.umd.js",
   "module": "./dist/vue3-katex.es.js",
