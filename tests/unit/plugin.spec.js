@@ -1,40 +1,36 @@
-import {createLocalVue} from '@vue/test-utils';
-import VueKatex from '@/plugin.js';
-
-const vueInNodeEnv = (options) => {
-  const localVue = createLocalVue();
-  localVue.use(VueKatex, options);
-  return localVue;
-};
+import { createApp, inject } from 'vue'
+import { mount } from '@vue/test-utils'
+import VueKatex from '@/plugin.js'
 
 describe('plugin.js', () => {
-  it('registers components and directives', ()=>{
-    const {components, directives} = vueInNodeEnv().options;
-    expect(components.KatexElement).toBeTruthy();
-    expect(directives.katex).toBeTruthy();
-  });
+  it('registers components and directives', () => {
+    const app = createApp({
+      template: '<div></div>',
+    })
+    app.use(VueKatex)
+    expect(app.directive('katex')).toBeTruthy()
+    expect(app.component('KatexElement').name).toBe('KatexElement')
+  })
 
   it('installs $katexOptions', () => {
-    const localVue = vueInNodeEnv({
-      globalOptions: {
-        someOption: 'woo!',
+    const wrapper = mount(
+      {
+        name: 'TestComponent',
+        setup: () => {
+          const options = inject('$katexOptions')
+          return {
+            options,
+          }
+        },
+        template: '<div>Empty - {{ options.someThing }}</div>',
       },
-    });
-    expect(localVue.prototype.$katexOptions).toBeTruthy();
-    expect(localVue.prototype.$katexOptions.someOption).toBeTruthy();
-  });
+      {
+        global: {
+          plugins: [[VueKatex, { globalOptions: { someThing: 'weird', message: 'working' } }]],
+        },
+      }
+    )
 
-  it('provides v-katex with globals', ()=>{
-    const vKatex = require('@/directives/katex-directive');
-    const vKatexSpy = jest.spyOn(vKatex, 'default');
-
-    const globalOptions = {
-      someOption: 'woo!',
-      anotherOne: 'woop',
-    };
-    vueInNodeEnv({
-      globalOptions,
-    });
-    expect(vKatexSpy).toBeCalledWith(globalOptions);
-  });
-});
+    expect(wrapper.html()).toBe('<div>Empty - weird</div>')
+  })
+})
