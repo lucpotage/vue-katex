@@ -53,7 +53,31 @@ Now you are all setup to use the plugin.
 
 There are two ways to use vue-katex, using the `KatexElement` component or using the `v-katex` directive.
 
+### Options
+
+The options you can set true are:
+
+* copyTex
+* mathtexScriptType
+* mhchem
+* renderA11yString
+
+For example to make use of `mhchem` you would set the following:
+
+```js
+createApp(App)
+  .use(VueKatex, {
+    mhchem: true,
+    globalOptions: {
+    //... Define globally applied KaTeX options here
+    }
+  });
+```
+
+The other option you can set is the `globalOptions` option.
+
 ### Global Options
+
 Options applied globally through the plugin will be merged with any options applied locally to the `v-katex` directive or `KatexElement`. Locally applied options have a higher precedence and will override globally applied options, the exception to this is any KaTeX option of the type `object` or `array`. These will be merged with the resultant option containing all global and local keys or elements.
 
 ### Using the katex directive

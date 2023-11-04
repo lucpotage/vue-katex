@@ -14,6 +14,18 @@ import KatexElement from './components/KatexElement.vue'
 function install(app, options) {
   const globalOptions = (options && options.globalOptions) || {}
   const vKatex = katexDirective(globalOptions)
+  if (options && options.mhchem) {
+    import('katex/dist/contrib/mhchem')
+  }
+  if (options && options.copyTex) {
+    import('katex/dist/contrib/copy-tex')
+  }
+  if (options && options.mathtexScriptType) {
+    import('katex/dist/contrib/mathtex-script-type')
+  }
+  if (options && options.renderA11yString) {
+    import('katex/dist/contrib/render-a11y-string')
+  }
   // app.use(VueDOMPurifyHTML)
   app.directive(vKatex.name, vKatex.directive)
   app.component(KatexElement.name, KatexElement)

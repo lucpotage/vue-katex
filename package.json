@@ -1,5 +1,5 @@
 {
-  "name": "vue-katex",
+  "name": "@hsorby/vue3-katex",
   "version": "0.6.0-rc.5",
   "description": "Vue 3 plugin for KaTeX",
   "type": "module",
