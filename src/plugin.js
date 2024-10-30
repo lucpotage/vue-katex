@@ -15,16 +15,16 @@ function install(app, options) {
   const globalOptions = (options && options.globalOptions) || {}
   const vKatex = katexDirective(globalOptions)
   if (options && options.mhchem) {
-    import('katex/dist/contrib/mhchem')
+    import('katex/dist/contrib/mhchem.mjs')
   }
   if (options && options.copyTex) {
-    import('katex/dist/contrib/copy-tex')
+    import('katex/dist/contrib/copy-tex.mjs')
   }
   if (options && options.mathtexScriptType) {
-    import('katex/dist/contrib/mathtex-script-type')
+    import('katex/dist/contrib/mathtex-script-type.mjs')
   }
   if (options && options.renderA11yString) {
-    import('katex/dist/contrib/render-a11y-string')
+    import('katex/dist/contrib/render-a11y-string.mjs')
   }
   // app.use(VueDOMPurifyHTML)
   app.directive(vKatex.name, vKatex.directive)
