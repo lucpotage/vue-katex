@@ -1,6 +1,6 @@
 {
-  "name": "@hsorby/vue3-katex",
-  "version": "0.6.0-rc.7",
+  "name": "vue3-katex",
+  "version": "0.7.0",
   "description": "Vue 3 plugin for KaTeX",
   "type": "module",
   "main": "./dist/vue3-katex.umd.js",
@@ -13,13 +13,11 @@
     }
   },
   "files": [
-    "dist",
-    "vetur/attributes.json",
-    "vetur/tags.json"
+    "dist"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lucpotage/vue-katex.git"
+    "url": "git+https://github.com/vue3-plugins/vue3-katex.git"
   },
   "scripts": {
     "build": "rollup --config rollup.config.mjs",
@@ -47,9 +45,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lucpotage/vue-katex/issues"
+    "url": "https://github.com/vue3-plugins/vue3-katex/issues"
   },
-  "homepage": "https://github.com/lucpotage/vue-katex#readme",
+  "homepage": "https://github.com/vue3-plugins/vue3-katex#readme",
   "keywords": [
     "Vue",
     "Vue3",
