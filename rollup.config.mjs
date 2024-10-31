@@ -3,9 +3,17 @@ import commonjs from '@rollup/plugin-commonjs'
 import buble from '@rollup/plugin-buble'
 import terser from '@rollup/plugin-terser'
 
+const globals = {
+  deepmerge: 'deepmerge',
+  katex: 'Katex',
+  'katex/dist/contrib/auto-render.js': 'renderMathInElement',
+  vue: 'Vue',
+  'vue-dompurify-html': 'vue-dompurify-html',
+}
+
 export default {
   input: 'src/plugin.js',
-  external: ['deepmerge', 'katex', 'katex/dist/contrib/auto-render.js', 'vue', 'vue-dompurify-html'],
+  // external: ['deepmerge', 'katex', 'katex/dist/contrib/auto-render.js', 'vue', 'vue-dompurify-html'],
   output: [
     {
       file: 'dist/vue3-katex.cjs.js',
@@ -19,15 +27,9 @@ export default {
       name: 'Vue3Katex',
       file: 'dist/vue3-katex.umd.js',
       format: 'umd',
-      globals: {
-        deepmerge: 'deepmerge',
-        katex: 'Katex',
-        'katex/dist/contrib/auto-render.js': 'renderMathInElement',
-        vue: 'Vue',
-        'vue-dompurify-html': 'vue-dompurify-html',
-      },
     },
   ],
+
   plugins: [
     commonjs(),
     vue({
