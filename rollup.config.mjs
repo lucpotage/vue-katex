@@ -2,18 +2,20 @@ import vue from 'rollup-plugin-vue'
 import commonjs from '@rollup/plugin-commonjs'
 import buble from '@rollup/plugin-buble'
 import terser from '@rollup/plugin-terser'
-
-const globals = {
-  deepmerge: 'deepmerge',
-  katex: 'Katex',
-  'katex/dist/contrib/auto-render.js': 'renderMathInElement',
-  vue: 'Vue',
-  'vue-dompurify-html': 'vue-dompurify-html',
-}
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 
 export default {
   input: 'src/plugin.js',
-  // external: ['deepmerge', 'katex', 'katex/dist/contrib/auto-render.js', 'vue', 'vue-dompurify-html'],
+  external: [
+    'katex',
+    'katex/dist/contrib/auto-render.mjs',
+    'katex/dist/contrib/copy-tex.mjs',
+    'katex/dist/contrib/mathtex-script-type.mjs',
+    'katex/dist/contrib/mhchem.mjs',
+    'katex/dist/contrib/render-a11y-string.mjs',
+    'vue',
+    'vue-dompurify-html',
+  ],
   output: [
     {
       file: 'dist/vue3-katex.cjs.js',
@@ -24,9 +26,14 @@ export default {
       format: 'esm',
     },
     {
-      name: 'Vue3Katex',
+      name: 'vue3-katex',
       file: 'dist/vue3-katex.umd.js',
       format: 'umd',
+      globals: {
+        vue: 'vue',
+        katex: 'katex',
+        'katex/dist/contrib/auto-render.mjs': 'renderMathInElement',
+      },
     },
   ],
 
@@ -41,5 +48,6 @@ export default {
       },
     }),
     terser(),
+    nodeResolve(),
   ],
 }

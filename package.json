@@ -67,6 +67,7 @@
     "@eslint/compat": "^1.2.2",
     "@rollup/plugin-buble": "^1.0.2",
     "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vue/compiler-sfc": "^3.2.33",
