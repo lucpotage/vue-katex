@@ -1,23 +1,25 @@
-import { shallowMount, mount } from '@vue/test-utils'
+import { describe, expect, it } from 'vitest'
+import { mount } from '@vue/test-utils'
 import KatexElement from '@/components/KatexElement.vue'
 import VueKatex from '@/plugin.js'
 import katex from 'katex'
 
 describe('KatexElement.vue', () => {
   it('matches snapshot - inline mode', () => {
-    const wrapper = shallowMount(KatexElement, {
+    const wrapper = mount(KatexElement, {
       props: {
         expression: '\\frac{a_i}{1+x}',
       },
       global: {
         plugins: [VueKatex],
       },
+      shallow: true,
     })
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.html()).toMatchSnapshot()
   })
 
   it('matches snapshot - display mode', () => {
-    const wrapper = shallowMount(KatexElement, {
+    const wrapper = mount(KatexElement, {
       props: {
         expression: '\\frac{a_i}{1+x}',
         displayMode: true,
@@ -25,12 +27,13 @@ describe('KatexElement.vue', () => {
       global: {
         plugins: [VueKatex],
       },
+      shallow: true,
     })
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.html()).toMatchSnapshot()
   })
 
   it('respects global options', () => {
-    const wrapper = shallowMount(KatexElement, {
+    const wrapper = mount(KatexElement, {
       props: {
         expression: '\\frac{a_i}{1+x}',
       },
@@ -47,6 +50,7 @@ describe('KatexElement.vue', () => {
             },
           ],
         ],
+        shallow: true,
       },
     })
 
@@ -59,7 +63,7 @@ describe('KatexElement.vue', () => {
   })
 
   it('merges global options', () => {
-    const wrapper = shallowMount(KatexElement, {
+    const wrapper = mount(KatexElement, {
       props: {
         expression: '\\frac{a_i}{1+x}',
         displayMode: true,
@@ -83,6 +87,7 @@ describe('KatexElement.vue', () => {
             },
           ],
         ],
+        shallow: true,
       },
     })
 
@@ -108,7 +113,7 @@ describe('KatexElement.vue', () => {
     const allowedProtocols = ['http', 'https']
     const strict = false
 
-    const wrapper = shallowMount(KatexElement, {
+    const wrapper = mount(KatexElement, {
       props: {
         expression: '\\frac{a_i}{1+x}',
         displayMode,
@@ -123,6 +128,7 @@ describe('KatexElement.vue', () => {
       },
       global: {
         plugins: [VueKatex],
+        shallow: true,
       },
     })
 
@@ -151,13 +157,14 @@ describe('KatexElement.vue', () => {
   })
 
   it('has correct root element - display mode', () => {
-    const wrapper = shallowMount(KatexElement, {
+    const wrapper = mount(KatexElement, {
       props: {
         expression: '\\frac{a_i}{1+x}',
         displayMode: true,
       },
       global: {
         plugins: [VueKatex],
+        shallow: true,
       },
     })
     expect(wrapper.find('div').exists()).toBe(true)

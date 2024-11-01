@@ -1,10 +1,12 @@
+import { describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
+
 import katexDirective from '@/directives/katex-directive'
 import katex from 'katex'
-import renderMathInElement from 'katex/dist/contrib/auto-render.js'
+import renderMathInElement from 'katex/dist/contrib/auto-render.mjs'
 
-jest.mock('katex')
-jest.mock('katex/dist/contrib/auto-render.js')
+vi.mock('katex')
+vi.mock('katex/dist/contrib/auto-render.mjs')
 
 const vKatex = katexDirective({})
 
@@ -77,6 +79,7 @@ describe('Directive v-katex', () => {
         },
       },
     })
+    expect(renderMathInElement).toBeCalledTimes(1)
     expect(renderMathInElement).toBeCalledWith(wrapper.element, {})
   })
   it('respects global options', () => {
@@ -106,6 +109,7 @@ describe('Directive v-katex', () => {
     expect(katex.render).toBeCalledWith(expression, wrapper.element, options)
   })
   it('merges global options', () => {
+    expect(renderMathInElement).toBeCalledTimes(1)
     const component = {
       template: `
           <div v-katex:auto="{options}">
@@ -135,6 +139,7 @@ describe('Directive v-katex', () => {
         },
       },
     })
+    expect(renderMathInElement).toBeCalledTimes(2)
     expect(renderMathInElement).toBeCalledWith(wrapper.element, {
       displayMode: true,
       delimiters: [

@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest'
 import { createApp, inject } from 'vue'
 import { mount } from '@vue/test-utils'
 import VueKatex from '@/plugin.js'
@@ -13,18 +14,21 @@ describe('plugin.js', () => {
   })
 
   it('installs $katexOptions', () => {
-    const wrapper = mount(
-      {
-        name: 'TestComponent',
-        setup: () => {
-          const options = inject('$katexOptions')
-          return {
-            options,
-          }
-        },
-        template: '<div>Empty - {{ options.someThing }}</div>',
+    const TestComponent =       {
+      name: 'TestComponent',
+      setup: () => {
+        const options = inject('$katexOptions')
+        return {
+          options,
+        }
       },
+      template: '<div>Empty - {{ options.someThing }}</div>',
+    }
+
+
+    const wrapper = mount(TestComponent,
       {
+        shallow: true,
         global: {
           plugins: [[VueKatex, { globalOptions: { someThing: 'weird', message: 'working' } }]],
         },
