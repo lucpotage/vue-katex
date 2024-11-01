@@ -24,3 +24,8 @@ jobs:
         cache: 'yarn'
     - run: yarn install
     - run: yarn prerelease
+    - run: yarn test:coverage
+    - name: Upload coverage results
+      uses: codecov/codecov-action@v4
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
