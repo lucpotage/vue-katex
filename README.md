@@ -3,7 +3,7 @@
 KaTeX enables fast math typesetting for the web. **vue3-katex** is a lightweight plugin introduces a simple way to use [KaTeX](https://github.com/KaTeX/KaTeX) in your Vue app. Enjoy! 🙂
 
 [![NPM version](https://img.shields.io/npm/v/vue3-katex.svg?style=flat)](https://www.npmjs.com/package/vue3-katex) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://travis-ci.org/vue3-plugins/vue3-katex.svg?branch=master)](https://travis-ci.org/vue3-plugins/vue3-katex)
+[![Build Status](https://github.com/vue3-plugins/vue3-katex/actions/workflows/release-state-check.yml/badge.svg)](https://github.com/vue3-plugins/vue3-katex/actions/workflows/release-state-check.yml/badge.svg)
 [![codecov](https://codecov.io/gh/vue3-plugins/vue3-katex/branch/master/graph/badge.svg)](https://codecov.io/gh/vue3-plugins/vue3-katex)
 
 
