@@ -1,40 +1,40 @@
-import {createLocalVue} from '@vue/test-utils';
-import VueKatex from '@/plugin.js';
-
-const vueInNodeEnv = (options) => {
-  const localVue = createLocalVue();
-  localVue.use(VueKatex, options);
-  return localVue;
-};
+import { describe, expect, it } from 'vitest'
+import { createApp, inject } from 'vue'
+import { mount } from '@vue/test-utils'
+import VueKatex from '@/plugin.js'
 
 describe('plugin.js', () => {
-  it('registers components and directives', ()=>{
-    const {components, directives} = vueInNodeEnv().options;
-    expect(components.KatexElement).toBeTruthy();
-    expect(directives.katex).toBeTruthy();
-  });
+  it('registers components and directives', () => {
+    const app = createApp({
+      template: '<div></div>',
+    })
+    app.use(VueKatex)
+    expect(app.directive('katex')).toBeTruthy()
+    expect(app.component('KatexElement').name).toBe('KatexElement')
+  })
 
   it('installs $katexOptions', () => {
-    const localVue = vueInNodeEnv({
-      globalOptions: {
-        someOption: 'woo!',
+    const TestComponent =       {
+      name: 'TestComponent',
+      setup: () => {
+        const options = inject('$katexOptions')
+        return {
+          options,
+        }
       },
-    });
-    expect(localVue.prototype.$katexOptions).toBeTruthy();
-    expect(localVue.prototype.$katexOptions.someOption).toBeTruthy();
-  });
+      template: '<div>Empty - {{ options.someThing }}</div>',
+    }
 
-  it('provides v-katex with globals', ()=>{
-    const vKatex = require('@/directives/katex-directive');
-    const vKatexSpy = jest.spyOn(vKatex, 'default');
 
-    const globalOptions = {
-      someOption: 'woo!',
-      anotherOne: 'woop',
-    };
-    vueInNodeEnv({
-      globalOptions,
-    });
-    expect(vKatexSpy).toBeCalledWith(globalOptions);
-  });
-});
+    const wrapper = mount(TestComponent,
+      {
+        shallow: true,
+        global: {
+          plugins: [[VueKatex, { globalOptions: { someThing: 'weird', message: 'working' } }]],
+        },
+      }
+    )
+
+    expect(wrapper.html()).toBe('<div>Empty - weird</div>')
+  })
+})
