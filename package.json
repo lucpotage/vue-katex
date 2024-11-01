@@ -24,6 +24,7 @@
     "lint": "eslint --config eslint.config.mjs",
     "test:unit": "vitest run",
     "test:update": "vitest -u run",
+    "test:coverage": "vitest run --coverage",
     "prerelease": "yarn run lint && yarn run test:unit && yarn run build"
   },
   "author": "Luc Potage",
