@@ -2,12 +2,11 @@ name: Check package release state
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     if: github.repository == 'vue3-plugins/vue3-katex'
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -16,16 +15,16 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'yarn'
-    - run: yarn install
-    - run: yarn prerelease
-    - run: yarn test:coverage
-    - name: Upload coverage results
-      uses: codecov/codecov-action@v4
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+      - run: yarn install
+      - run: yarn prerelease
+      - run: yarn test:coverage
+      - name: Upload coverage results
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
