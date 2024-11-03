@@ -1,3 +1,5 @@
+> Old Vue 2 implementation of the KaTeX library. To not use with Vue 3.
+
 # vue-katex
 
 KaTeX enables fast math typesetting for the web. **vue-katex** is a lightweight plugin introduces a simple way to use [KaTeX](https://github.com/KaTeX/KaTeX) in your Vue app. Enjoy! 🙂
