@@ -42,7 +42,7 @@ describe('KatexElement.vue', () => {
           [
             VueKatex,
             {
-              globalOptions: {
+              katexOptions: {
                 macros: {
                   '\\blah': '\\frac{#}{#}',
                 },
@@ -77,7 +77,7 @@ describe('KatexElement.vue', () => {
           [
             VueKatex,
             {
-              globalOptions: {
+              katexOptions: {
                 displayMode: false,
                 errorColor: '#000',
                 macros: {

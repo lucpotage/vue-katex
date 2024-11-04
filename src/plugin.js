@@ -4,6 +4,10 @@
 import katexDirective from './directives/katex-directive'
 import KatexElement from './components/KatexElement.vue'
 // import VueDOMPurifyHTML from 'vue-dompurify-html'
+import 'katex/dist/contrib/copy-tex.mjs'
+import 'katex/dist/contrib/mhchem.mjs'
+import 'katex/dist/contrib/mathtex-script-type.mjs'
+import 'katex/dist/contrib/render-a11y-string.mjs'
 
 /**
  * Install function for installing plugin into Vue 3 application.
@@ -12,24 +16,12 @@ import KatexElement from './components/KatexElement.vue'
  * @param {Object} options
  */
 function install(app, options) {
-  const globalOptions = (options && options.globalOptions) || {}
-  const vKatex = katexDirective(globalOptions)
-  if (options && options.mhchem) {
-    import('katex/dist/contrib/mhchem.mjs')
-  }
-  if (options && options.copyTex) {
-    import('katex/dist/contrib/copy-tex.mjs')
-  }
-  if (options && options.mathtexScriptType) {
-    import('katex/dist/contrib/mathtex-script-type.mjs')
-  }
-  if (options && options.renderA11yString) {
-    import('katex/dist/contrib/render-a11y-string.mjs')
-  }
+  const katexOptions = (options && options.katexOptions) || {}
+  const vKatex = katexDirective(katexOptions)
   // app.use(VueDOMPurifyHTML)
   app.directive(vKatex.name, vKatex.directive)
   app.component(KatexElement.name, KatexElement)
-  app.provide('$katexOptions', globalOptions)
+  app.provide('$katexOptions', katexOptions)
 }
 
 export default install

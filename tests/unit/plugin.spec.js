@@ -30,7 +30,7 @@ describe('plugin.js', () => {
       {
         shallow: true,
         global: {
-          plugins: [[VueKatex, { globalOptions: { someThing: 'weird', message: 'working' } }]],
+          plugins: [[VueKatex, { katexOptions: { someThing: 'weird', message: 'working' } }]],
         },
       }
     )
