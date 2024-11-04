@@ -127,6 +127,10 @@ Through props `KatexElement` supports all of the same options that KaTeX support
 
 See also: [KaTeX Documentation](https://katex.org/docs/options.html)
 
+# Example
+
+As an example, a super simple website is available [here](https://vue3-plugins.github.io/) and the source code for this website is avaiable [here](https://github.com/vue3-plugins/vue3-plugins.github.io).
+
 # License
 
 vue3-katex is released under the [MIT license](http://opensource.org/licenses/MIT).
